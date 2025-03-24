@@ -4,7 +4,12 @@ import random
 def load_ips():
     try:
         with open("ips.json", "r") as f:
-            return json.load(f)
+            ips = json.load(f)
+            if not ips["ipv4"]:
+                ips["ipv4"] = ["162.159.192.1:2408", "162.159.193.1:500"]
+            if not ips["ipv6"]:
+                ips["ipv6"] = ["[2606:4700:d0::a29f:c001]:2408", "[2606:4700:d1::a29f:c001]:500"]
+            return ips
     except:
         return {
             "ipv4": ["162.159.192.1:2408", "162.159.193.1:500"],
