@@ -77,6 +77,11 @@ def filter_working_ips(ips, ports):
                 working_ipv6.append(f"{ip}:{port}")
                 break
     
+    if not working_ipv4:
+        working_ipv4 = ["162.159.192.1:2408", "162.159.193.1:500"]
+    if not working_ipv6:
+        working_ipv6 = ["[2606:4700:d0::a29f:c001]:2408", "[2606:4700:d1::a29f:c001]:500"]
+    
     return {"ipv4": working_ipv4, "ipv6": working_ipv6}
 
 def save_to_json():
