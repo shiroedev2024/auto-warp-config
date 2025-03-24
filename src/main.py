@@ -7,8 +7,8 @@ def load_ips():
             return json.load(f)
     except:
         return {
-            "ipv4": ["1.1.1.1", "1.0.0.1"],
-            "ipv6": ["[2606:4700:4700::1111]", "[2606:4700:4700::1001]"]
+            "ipv4": ["162.159.192.1", "162.159.193.1"],
+            "ipv6": ["[2606:4700:d0::a29f:c001]", "[2606:4700:d1::a29f:c001]"]
         }
 
 def generate_config(ip, port, index, ip_version):
@@ -21,13 +21,15 @@ def update_config_file():
     ips = load_ips()
     ipv4 = random.choice(ips["ipv4"])
     ipv6 = random.choice(ips["ipv6"])
-    port_ipv4 = random.randint(8000, 9000)
-    port_ipv6 = random.randint(8000, 9000)
+    
+    warp_ports = [2408, 500, 1701, 4500, 8080, 8443]
+    port_ipv4 = random.choice(warp_ports)
+    port_ipv6 = random.choice(warp_ports)
     
     configs = []
     configs.append("warp://auto")
-    configs.append(generate_config(ipv4, port_ipv4, 2, "IPv4"))
-    configs.append(generate_config(ipv6, port_ipv6, 3, "IPv6"))
+    configs.append(generate_config(ipv4, port_ipv4, 1, "IPv4"))
+    configs.append(generate_config(ipv6, port_ipv6, 2, "IPv6"))
     
     final_config = template + "\n" + "\n\n".join(configs)
     
