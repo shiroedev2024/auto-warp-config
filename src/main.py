@@ -6,7 +6,7 @@ from datetime import datetime
 
 def fetch_ips():
     try:
-        response = requests.get('https://raw.githubusercontent.com/ircfspace/endpoint/refs/heads/main/ip.json')
+        response = requests.get('https://raw.githubusercontent.com/4n0nymou3/cloudflare-clean-ip-scanner/refs/heads/main/data/ips.json')
         data = response.json()
         return data
     except Exception as e:
