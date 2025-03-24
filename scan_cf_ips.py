@@ -1,9 +1,8 @@
 import socket
 import json
-import random
 
-def resolve_cloudflare_ips():
-    domains = ["cloudflare.com", "www.cloudflare.com", "one.one.one.one"]
+def resolve_warp_ips():
+    domains = ["engage.cloudflareclient.com", "warp.daemon.cloudflare.com"]
     ipv4_list = []
     ipv6_list = []
     
@@ -26,7 +25,7 @@ def resolve_cloudflare_ips():
     return {"ipv4": ipv4_list, "ipv6": ipv6_list}
 
 def save_to_json():
-    ips = resolve_cloudflare_ips()
+    ips = resolve_warp_ips()
     with open("ips.json", "w") as f:
         json.dump(ips, f)
 
