@@ -1,6 +1,7 @@
 import socket
 import json
 import random
+import subprocess
 
 def scan_cloudflare_ips():
     domains = [
@@ -49,10 +50,41 @@ def scan_cloudflare_ips():
     
     return {"ipv4": ipv4_list[:20], "ipv6": ipv6_list[:20]}
 
+def test_ip(ip, port):
+    try:
+        if ip.startswith("["):
+            ip = ip[1:-1]
+            result = subprocess.run(['nc', '-6', '-z', '-w', '2', ip, str(port)], stdout=subprocess.DEVNULL)
+        else:
+            result = subprocess.run(['nc', '-4', '-z', '-w', '2', ip, str(port)], stdout=subprocess.DEVNULL)
+        return result.returncode == 0
+    except:
+        return False
+
+def filter_working_ips(ips, ports):
+    working_ipv4 = []
+    working_ipv6 = []
+    
+    for ip in ips["ipv4"]:
+        for port in ports:
+            if test_ip(ip, port):
+                working_ipv4.append(f"{ip}:{port}")
+                break
+    
+    for ip in ips["ipv6"]:
+        for port in ports:
+            if test_ip(ip, port):
+                working_ipv6.append(f"{ip}:{port}")
+                break
+    
+    return {"ipv4": working_ipv4, "ipv6": working_ipv6}
+
 def save_to_json():
     ips = scan_cloudflare_ips()
+    warp_ports = [2408, 500, 1701, 4500, 8080, 8443]
+    working_ips = filter_working_ips(ips, warp_ports)
     with open("ips.json", "w") as f:
-        json.dump(ips, f)
+        json.dump(working_ips, f, indent=4)
 
 if __name__ == "__main__":
     save_to_json()
