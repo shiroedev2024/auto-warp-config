@@ -4,8 +4,8 @@
 //support-url: https://t.me/BXAMbot
 //profile-web-page-url: https://github.com/4n0nymou3
 
-warp://104.16.3.189:2083/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4&&detour=warp://104.16.3.189:2083/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4#Anon-WoW-IPv4🇩🇪-1
+warp://141.101.122.237:2087/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4&&detour=warp://141.101.122.237:2087/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4#Anon-WoW-IPv4🇩🇪-1
 
-warp://172.65.170.182:2371/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4&&detour=warp://172.65.170.182:2371/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4#Anon-WoW-IPv4🇩🇪-2
+warp://172.67.171.204:2087/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4&&detour=warp://172.67.171.204:2087/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4#Anon-WoW-IPv4🇩🇪-2
 
 warp://[2606:4700:d1::a29f:c001]:500/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4&&detour=warp://[2606:4700:d1::a29f:c001]:500/?ifp=50-100&ifps=50-100&ifpd=3-6&ifpm=m4#Anon-WoW-IPv6🇩🇪-3
